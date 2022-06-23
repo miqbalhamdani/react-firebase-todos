@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Create new blog post",
+    "tag": "personal",
+    "dueDate": "22-06-2022",
+    "isDone": true
+  },
+  {
+    "name": "Prepare redux material",
+    "tag": "binar",
+    "dueDate": "23-06-2022",
+    "isDone": false
+  },
+  {
+    "name": "Create simple frontend architecture",
+    "tag": "misteraladin",
+    "dueDate": "24-06-2022",
+    "isDone": false
+  },
+  {
+    "name": "Reading some book",
+    "tag": "personal",
+    "dueDate": "25-06-2022",
+    "isDone": false
+  }
+]

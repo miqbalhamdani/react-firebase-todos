@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 
-export default function TodoInput(props) {
+import { Todos } from "../../context/TodosContext";
+
+export default function TodoInput() {
+  const { addNewTodo } = Todos();
+
   const [textInput, setTextInput] = useState("");
 
   const handleChangeInput = (e) => {
@@ -16,7 +20,7 @@ export default function TodoInput(props) {
       name: getTextWithoutHashtag(tag),
       tag,
     };
-    props.onInput(payload);
+    addNewTodo(payload);
 
     setTextInput("");
   };

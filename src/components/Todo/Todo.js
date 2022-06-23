@@ -1,4 +1,5 @@
 import React from "react";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -7,10 +8,10 @@ import Form from "react-bootstrap/Form";
 import TodoCard from "./TodoCard";
 import TodoInput from "./TodoInput";
 
-export default function Todo(props) {
-  const handlerInput = (value) => {
-    props.onTodoInput(value);
-  };
+import { Todos } from "../../context/TodosContext";
+
+export default function Todo() {
+  const { todos } = Todos();
 
   return (
     <Container>
@@ -26,12 +27,12 @@ export default function Todo(props) {
 
           {/* Todo List */}
           <Form>
-            { props.todos.length
-              ? props.todos.map((todo, index) => <TodoCard todo={todo} key={index} />)
+            { todos.length
+              ? todos.map((todo, index) => <TodoCard todo={todo} key={index} />)
               : "No tasks, Today. Time to chill :D"}
           </Form>
 
-          <TodoInput onInput={handlerInput} />
+          <TodoInput />
         </Col>
       </Row>
     </Container>

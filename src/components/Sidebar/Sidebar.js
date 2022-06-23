@@ -1,28 +1,10 @@
-import React, { useEffect, useState } from "react";
 import style from "./sidebar.module.css";
 import SidebarItem from "./SidebarItem";
 
-export default function Sidebar(props) {
-  const [categories, setCategories] = useState([
-    { name: "Today" },
-    { name: "Tomorrow" },
-    { name: "Next 7 Days" },
-  ]);
-  const [tags, setTags] = useState(null);
+import { Todos } from "../../context/TodosContext";
 
-  useEffect(() => {
-    const tags = props.todos.reduce(
-      (accumulator, todo) => ({
-        ...accumulator,
-        [todo.tag]:
-          typeof accumulator[todo.tag] !== "undefined"
-            ? accumulator[todo.tag] + 1
-            : 1,
-      }),
-      {}
-    );
-    setTags(tags);
-  }, [props.todos]);
+export default function Sidebar() {
+  const { categories, tags } = Todos();
 
   return (
     <div className={style.sidebar}>
